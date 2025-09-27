@@ -1,0 +1,27 @@
+services:
+  postgres:
+    # from https://github.com/TGITS/docker-compose-examples/blob/main/postgresql-docker-compose-examples/README.md
+    # see https://hub.docker.com/_/postgres for list of postgres image versions on docker hub
+    #image: postgres:latest # To download the latest image
+    image: postgres:18 # To download a version, here the latest 18.x of Postgresql
+    container_name: postgres
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    env_file:
+      - .env    
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432" # HOST_PORT:CONTAINER_PORT
+    networks:
+      - postgres_network
+
+volumes:
+  postgresql_data:
+    driver: local
+
+networks:
+  postgres_network:
+    driver: bridge
