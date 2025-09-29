@@ -26,52 +26,19 @@ public static class WineApi
         return apiGroup;
     }
 
-    // TODO: Change to return Dto
-    public static async Task<IEnumerable<Wine>> GetAllWines(
+    public static async Task<IEnumerable<WineDto>> GetAllWines(
         WineService service,
         CancellationToken ct)
     {
-        //var allWines = new Wine[]
-        //{
-        //new ()
-        //{
-        //Id = 1,
-        //Producer= "Clotilde Davenne",
-        //Label = "Brut Extra Crémant de Bourgogne",
-        //Vintage = null,
-        //AlcoholByVolume = new decimal(12.5),
-        //Container = Container.Bottle,
-        //Grapes = new List<Blend>()
-        //{
-        //new Blend(Grape.PinotNoir, 60),
-        //new Blend(Grape.Chardonnay, 40),
-        //}
-        //}
-        //};
         var allWines = await service.GetAllWines(ct);
         return allWines;
     }
 
-    public static async Task<Wine?> GetWineById(
+    public static async Task<WineDto?> GetWineById(
         long Id,
         WineService service,
         CancellationToken ct)
     {
-        //var wine = new Wine()
-        //{
-        //Id = 1,
-        //Producer = "Clotilde Davenne",
-        //Label = "Brut Extra Crémant de Bourgogne",
-        //Vintage = null,
-        //AlcoholByVolume = new decimal(12.5),
-        //Container = Container.Bottle,
-        //Grapes = new List<Blend>()
-        //{
-        //new Blend(Grape.PinotNoir, 60),
-        //new Blend(Grape.Chardonnay, 40),
-        //}
-        //};
-
         var wine = await service.GetAWine(Id, ct);
 
         return wine;

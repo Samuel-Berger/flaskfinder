@@ -6,16 +6,22 @@ namespace Business;
 
 public class WineService(FlaskFinderDbContext _dbContext)
 {
-    public async Task<IEnumerable<Wine>> GetAllWines(CancellationToken ct)
+    public async Task<IEnumerable<WineDto>> GetAllWines(CancellationToken ct)
     {
-        var wines = await _dbContext.Wines.ToListAsync(ct);
+        var wines = await _dbContext.Wines
+           .Select(x => new WineDto(x.Id.ToString()))
+           .ToListAsync(ct);
+
         return wines;
     }
 
-    public async Task<Wine?> GetAWine(long id, CancellationToken ct)
+    public async Task<WineDto?> GetAWine(long id, CancellationToken ct)
     {
-        var wine = await _dbContext.Wines.SingleOrDefaultAsync(
-            x => x.Id == id, cancellationToken: ct);
+        var wine = await _dbContext.Wines
+           .Where(x => x.Id == id)
+           .Select(x => new WineDto(x.Id.ToString()))
+           .SingleOrDefaultAsync(ct);
+
         return wine;
     }
 }

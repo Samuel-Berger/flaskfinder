@@ -21,4 +21,8 @@
     <ProjectReference Include="..\FlaskFinder\FlaskFinder.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Setup\" />
+  </ItemGroup>
+
 </Project>
