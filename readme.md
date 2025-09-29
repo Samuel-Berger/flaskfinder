@@ -27,6 +27,14 @@ info: Microsoft.Hosting.Lifetime[0] Application started. Press Ctrl+C to shut do
 info: Microsoft.Hosting.Lifetime[0] Hosting environment: Development
 ```
 
+## Run API on nixOS
+No migrations or fancy stuff like that. But can be launched with
+
+```sh
+nix-shell -p dotnet-sdk_9
+dotnet run --project WebApi/WebApi.csproj
+```
+
 ## Coming
 
 1. .NET-project instructions
