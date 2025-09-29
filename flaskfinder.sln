@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 		flask-finder-compose.yaml = flask-finder-compose.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{47B16CA2-73EB-4502-8616-1291E6B0DF80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47B16CA2-73EB-4502-8616-1291E6B0DF80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B16CA2-73EB-4502-8616-1291E6B0DF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B16CA2-73EB-4502-8616-1291E6B0DF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B16CA2-73EB-4502-8616-1291E6B0DF80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
