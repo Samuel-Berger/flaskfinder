@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaskFinder", "FlaskFinder\FlaskFinder.csproj", "{632BBFCE-30C8-4184-B63C-1E9B734285F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{ADC84B48-D236-4C5C-9BEE-9E2996744D01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		migrations\000000000001-AddWineTables.sql = migrations\000000000001-AddWineTables.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{85FD6AC7-D9B7-4192-9486-30D902C4BBE4}"
+	ProjectSection(SolutionItems) = preProject
+		flask-finder-compose.yaml = flask-finder-compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{632BBFCE-30C8-4184-B63C-1E9B734285F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632BBFCE-30C8-4184-B63C-1E9B734285F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632BBFCE-30C8-4184-B63C-1E9B734285F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632BBFCE-30C8-4184-B63C-1E9B734285F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC84B48-D236-4C5C-9BEE-9E2996744D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFEE7C5B-347B-4354-824D-773487960D00}
+	EndGlobalSection
+EndGlobal

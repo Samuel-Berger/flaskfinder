@@ -1,0 +1,11 @@
+@WebApi_HostAddress = http://localhost:5046
+
+GET {{WebApi_HostAddress}}/wines/
+Accept: application/json
+
+###
+
+GET {{WebApi_HostAddress}}/wines/1
+Accept: application/json
+
+###
