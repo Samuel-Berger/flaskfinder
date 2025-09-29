@@ -1,5 +1,4 @@
-﻿using FlaskFinder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Entities;
 
@@ -24,7 +23,7 @@ public class FlaskFinderDbContext : DbContext
         modelBuilder.Entity<Blend>(e =>
         {
             e.ToTable("Blend");
-            e.HasKey(e => new {e.Grape, e.Percentage});
+            e.HasKey(e => new { e.Grape, e.Percentage });
         });
 
         base.OnModelCreating(modelBuilder);

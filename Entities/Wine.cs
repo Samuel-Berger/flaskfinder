@@ -1,4 +1,4 @@
-﻿namespace FlaskFinder;
+﻿namespace Entities;
 
 public class Wine
 {
@@ -8,5 +8,5 @@ public class Wine
     public required DateOnly? Vintage { get; set; }
     public required decimal AlcoholByVolume { get; set; }
     public required Container Container { get; set; }
-    public required IEnumerable<Blend> Grapes { get; set; }
+    public required IEnumerable<Blend>? Grapes { get; set; }
 }

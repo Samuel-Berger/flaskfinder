@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FlaskFinder;
+namespace Entities;
 
 [JsonConverter(typeof(JsonStringEnumConverter<Grape>))]
 public enum Grape : int

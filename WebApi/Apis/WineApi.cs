@@ -1,5 +1,5 @@
 ﻿using Business;
-using FlaskFinder;
+using Dtos;
 
 namespace WebApi.Apis;
 
@@ -9,6 +9,8 @@ public static class WineApi
     {
         public const string AllWines = nameof(GetAllWines);      // http://localhost:5046/api/wines/all-wines
         public const string WineById = nameof(GetWineById);    // http://localhost:5046/api/wines/wine-by-id?id=1
+        public const string CreateWine = nameof(CreateWine);    // http://localhost:5046/api/wines/wine-by-id?id=1
+
     }
 
     public static RouteGroupBuilder RegisterWineApi(this RouteGroupBuilder apiGroup)
@@ -23,57 +25,38 @@ public static class WineApi
          .WithDescription("Get a single wine.")
          .WithName(EndpointNames.WineById); ;
 
+        //group.MapGet("create-wine", CreateWine)
+         //.WithDescription("Create a wine.")
+         //.WithName(EndpointNames.CreateWine); ;
+
         return apiGroup;
     }
 
-    // TODO: Change to return Dto
-    public static async Task<IEnumerable<Wine>> GetAllWines(
+    public static async Task<IEnumerable<WineDto>> GetAllWines(
         WineService service,
         CancellationToken ct)
     {
-        //var allWines = new Wine[]
-        //{
-        //new ()
-        //{
-        //Id = 1,
-        //Producer= "Clotilde Davenne",
-        //Label = "Brut Extra Crémant de Bourgogne",
-        //Vintage = null,
-        //AlcoholByVolume = new decimal(12.5),
-        //Container = Container.Bottle,
-        //Grapes = new List<Blend>()
-        //{
-        //new Blend(Grape.PinotNoir, 60),
-        //new Blend(Grape.Chardonnay, 40),
-        //}
-        //}
-        //};
         var allWines = await service.GetAllWines(ct);
         return allWines;
     }
 
-    public static async Task<Wine?> GetWineById(
+    public static async Task<WineDto?> GetWineById(
         long Id,
         WineService service,
         CancellationToken ct)
     {
-        //var wine = new Wine()
-        //{
-        //Id = 1,
-        //Producer = "Clotilde Davenne",
-        //Label = "Brut Extra Crémant de Bourgogne",
-        //Vintage = null,
-        //AlcoholByVolume = new decimal(12.5),
-        //Container = Container.Bottle,
-        //Grapes = new List<Blend>()
-        //{
-        //new Blend(Grape.PinotNoir, 60),
-        //new Blend(Grape.Chardonnay, 40),
-        //}
-        //};
-
         var wine = await service.GetAWine(Id, ct);
 
         return wine;
     }
+
+    //public static async Task CreateWine(
+    //Wine wine,
+    //WineManipulation changes,
+    //CancellationToken ct)
+    //{
+    //var status = await changes.CreateWine(wine, ct);
+
+    //return;
+    //}
 }
