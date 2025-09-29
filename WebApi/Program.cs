@@ -1,8 +1,9 @@
+using Business;
+using Entities;
 using FlaskFinder;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebApi.Apis;
-using WebApi.Setup;
 
 namespace WebApi;
 
@@ -17,19 +18,20 @@ public class Program
             options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
         });
 
-        builder.Services.AddDbContext<Database>((sp, options) =>
+        builder.Services.AddDbContext<FlaskFinderDbContext>((sp, options) =>
         {
             var connectionString = builder.Configuration.GetConnectionString("Postgres");
-
             options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
         });
 
         builder.Logging.AddSimpleConsole(c => c.SingleLine = true);
 
+        builder.Services.AddTransient<WineService>();
+
         var app = builder.Build();
 
         await using var Scope = app.Services.CreateAsyncScope();
-        var DbContext = Scope.ServiceProvider.GetRequiredService<Database>();
+        var DbContext = Scope.ServiceProvider.GetRequiredService<FlaskFinderDbContext>();
 
         var canConnect = await DbContext.Database.CanConnectAsync();
         app.Logger.LogInformation("Can connect to database: {CanConnect}", canConnect);
