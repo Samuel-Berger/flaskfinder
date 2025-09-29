@@ -1,11 +1,13 @@
 using FlaskFinder;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using WebApi.Setup;
 
 namespace WebApi;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateSlimBuilder(args);
 
@@ -14,7 +16,21 @@ public class Program
             options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
         });
 
+        builder.Services.AddDbContext<Database>((sp, options) =>
+        {
+            var connectionString = builder.Configuration.GetConnectionString("Postgres");
+
+            options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
+        });
+
+        builder.Logging.AddSimpleConsole(c => c.SingleLine = true);
+
         var app = builder.Build();
+
+        await using var scope = app.Services.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<Database>();
+        var canConnect = await db.Database.CanConnectAsync();
+        app.Logger.LogInformation("Can connect to database: {CanConnect}", canConnect);
 
         var allWines = new Wine[]
         {
