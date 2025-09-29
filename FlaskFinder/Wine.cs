@@ -10,3 +10,5 @@ public class Wine
     public required Container Container { get; set; }
     public required IEnumerable<Blend> Grapes { get; set; }
 }
+
+public record WineDto(string id);

@@ -37,13 +37,16 @@ dotnet run --project WebApi/WebApi.csproj
 
 ## Coming
 
-1. .NET-project instructions
-2. Automatic apply of migrations
-3. Run on actual web hosting
-4. Add spirits
+* Automatic application of migrations
+* Wishlist
+* Barcode
+* Rudimentary front end
+* Run on actual web hosting (FreeBSD!)
+* Some sort of pattern recognition (don't call it AI!)
+* Add spirits
 
 ## References
 
-[Minimal-API](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0)  
+[Minimal APIs quick reference](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0)  
 [Example](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-9.0&tabs=visual-studio)  
 [Database](https://medium.com/@vosarat1995/integrating-postgresql-with-net-9-using-ef-core-a-step-by-step-guide-a773768777f2)  

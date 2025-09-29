@@ -21,7 +21,7 @@ CREATE TABLE wine (
     CONSTRAINT uq_wine_label UNIQUE
     CONSTRAINT nn_wine_label NOT NULL,
   vintage DATE,
-  alcoholbyvolume decimal
+  alcohol_by_volume decimal
     CONSTRAINT nn_wine_alcoholbyvolume NOT NULL,
   container varchar(30)
     CONSTRAINT nn_wine_container NOT NULL
@@ -33,5 +33,7 @@ CREATE TABLE blend(
     grape_id integer REFERENCES grape
       CONSTRAINT nn_grape_id NOT NULL,
     percentage int
-      CONSTRAINT nn_blend_percentage NOT NULL
+      CONSTRAINT nn_blend_percentage NOT NULL,
+
+    PRIMARY KEY (wine_id, grape_id, percentage)
 );
