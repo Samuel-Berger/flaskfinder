@@ -1,5 +1,6 @@
 using Business;
 using Entities;
+using FlaskFinder;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebApi.Apis;
@@ -26,7 +27,6 @@ public class Program
         builder.Logging.AddSimpleConsole(c => c.SingleLine = true);
 
         builder.Services.AddTransient<WineService>();
-        //builder.Services.AddTransient<WineManipulation>();
 
         var app = builder.Build();
 

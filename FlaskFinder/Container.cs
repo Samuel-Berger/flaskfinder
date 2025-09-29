@@ -1,4 +1,4 @@
-﻿namespace Entities;
+﻿namespace FlaskFinder;
 
 public enum Container : short
 {
