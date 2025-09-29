@@ -2,8 +2,8 @@
   "profiles": {
     "http": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "wines",
+      "launchBrowser": false,
+      "launchUrl": "api/wines/get-all-wines",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
